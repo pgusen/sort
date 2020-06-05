@@ -31,10 +31,12 @@ int get_sort_method(char method[]) {
         selected_method = HEAP;
     else if(strcmp(method, "merge") == 0)
         selected_method = MERGE;
+/*        
     else if(strcmp(method, "gpuquick") == 0)
         selected_method = GPUQUICK;
     else if(strcmp(method, "gpumerge") == 0)
         selected_method = GPUMERGE;
+*/        
     else
         selected_method = UNDEFINED;
     return selected_method;
@@ -142,12 +144,14 @@ char* get_method_name(int method){
         case MERGE:
             name = "Merge";
             break;
+/*            
         case GPUQUICK:
             name = "CUDA Quick Sort";
             break;
         case GPUMERGE:
             name = "CUDA Merge Sort";
             break;
+*/            
         case UNDEFINED:
         default:
             name = " - ";

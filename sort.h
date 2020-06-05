@@ -26,8 +26,8 @@
 #define QUICK      3
 #define HEAP       4
 #define MERGE      5
-#define GPUQUICK   6
-#define GPUMERGE   7
+//#define GPUQUICK   6
+//#define GPUMERGE   7
 #define UNDEFINED -1
 
 extern int numberOfComparisons;

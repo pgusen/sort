@@ -17,7 +17,7 @@
  */
 
 #include"sort.h"
-#include"cuda_sort.h"
+//#include"cuda_sort.h"
 #include<string.h>
 #include<stdlib.h>
 
@@ -240,7 +240,7 @@ int* sort_array(int *array, int size, int method){
             merge_sort(array, size);
             end = clock();
         break;
-
+/*
         case GPUQUICK:
             start = clock();
             gpu_qsort(array,size);
@@ -251,6 +251,7 @@ int* sort_array(int *array, int size, int method){
             start = clock();
             gpumerge_sort(array,size);
             end = clock();
+*/            
     }
     elapsed_time = (((double)(end-start))/CLOCKS_PER_SEC);
     return array;
