@@ -1,7 +1,7 @@
 sort
 ====
 
-ps.: *Para o trabalho da disciplina de teste de software, vc deve usar o branch 'c_only'.*
+ps.: **Para o trabalho da disciplina de teste de software, vc deve usar o branch 'c_only'.**
 
 Repository of sorting algorithms in C and CUDA.
 
