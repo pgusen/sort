@@ -257,14 +257,14 @@ int* sort_array(int *array, int size, int method){
     return array;
 }
 
-double get_elapsed_time(){
-    return elapsed_time;
-}
+// double get_elapsed_time(){
+//     return elapsed_time;
+// }
 
-int get_swaps(){
-    return numberOfSwaps;
-}
+// int get_swaps(){
+//     return numberOfSwaps;
+// }
 
-int get_comparisons(){
-    return numberOfComparisons;
-}
+// int get_comparisons(){
+//     return numberOfComparisons;
+// }

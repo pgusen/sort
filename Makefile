@@ -76,8 +76,12 @@ ALL_LDFLAGS += $(addprefix -Xlinker ,$(EXTRA_LDFLAGS))
 
 all: app
 
-app: unity.o array.o sort.o get_opt.o test/test_sorter.o test/test_runners/TestSorter_Runner.o
-		gcc $(ALL_LDFLAGS)  -Isrc -Itools/Unity/src -fprofile-arcs -ftest-coverage -o $@ $+ $(LIBRARIES)
+test_sort: unity.o array.o sort.o get_opt.o test/test_sorter.o test/test_runners/TestSorter_Runner.o
+		gcc $(ALL_LDFLAGS)  -Isrc -Itools/Unity/src -o $@ $+ $(LIBRARIES)
+
+
+cov: unity.o array.o get_opt.o test/test_sorter.o test/test_runners/TestSorter_Runner.o
+		gcc $(ALL_LDFLAGS)  -Isrc -Itools/Unity/src -fprofile-arcs -ftest-coverage sort.c -o $@ $+ $(LIBRARIES)
 
 teste_sorter.o:test/test_sorter.c
 	gcc -o $@ -c $<
@@ -100,7 +104,7 @@ get_opt.o:get_opt.c
 sorter.o:main.c
 	gcc -o $@ -c $<
 
-test: array.o sort.o get_opt.o main.o
+app: array.o sort.o get_opt.o main.o
 #gcc $(ALL_LDFLAGS) -o test_sorter
 	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES)
 

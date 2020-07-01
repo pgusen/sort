@@ -38,6 +38,7 @@ extern void test_selection();
 extern void test_shell();
 extern void test_heap();
 extern void test_merge();
+extern void test_quick_fail();
 
 
 /*=======Suite Setup=====*/
@@ -78,6 +79,7 @@ int main(void)
   RUN_TEST(test_shell, 35);
   RUN_TEST(test_heap, 42);
   RUN_TEST(test_merge, 49);
+  RUN_TEST(test_quick_fail, 56);
 
   return suite_teardown(UnityEnd());
 }
