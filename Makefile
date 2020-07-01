@@ -69,12 +69,24 @@ ALL_LDFLAGS += $(ALL_CCFLAGS)
 ALL_LDFLAGS += $(addprefix -Xlinker ,$(LDFLAGS))
 ALL_LDFLAGS += $(addprefix -Xlinker ,$(EXTRA_LDFLAGS))
 
-
 ################################################################################
 # This part modified by Eugenio Pacceli Reis da Fonseca
 # DCC/UFMG
 # Target rules
+
 all: app
+
+app: unity.o array.o sort.o get_opt.o test/test_sorter.o test/test_runners/TestSorter_Runner.o
+		gcc $(ALL_LDFLAGS)  -Isrc -Itools/Unity/src -fprofile-arcs -ftest-coverage -o $@ $+ $(LIBRARIES)
+
+teste_sorter.o:test/test_sorter.c
+	gcc -o $@ -c $<
+
+TestSorter_Runner.o:test/test_runners/TestSorter_Runner.c
+	gcc -o $@ -c $<
+
+tools/Unity/src/unity.o:tools/Unity/src/unity.c
+	gcc -o $@ -c $<
 
 array.o:array.c
 	gcc -o $@ -c $<
@@ -85,11 +97,15 @@ sort.o:sort.c
 get_opt.o:get_opt.c
 	gcc -o $@ -c $<
 
-main.o:main.c
+sorter.o:main.c
 	gcc -o $@ -c $<
 
-app: array.o sort.o get_opt.o main.o
+test: array.o sort.o get_opt.o main.o
+#gcc $(ALL_LDFLAGS) -o test_sorter
 	gcc $(ALL_LDFLAGS) -o $@ $+ $(LIBRARIES)
+
+#test:$(TESTPATH)
+#	ruby tools/Unity/auto/generate_test_runner.rb $(TESTPATH) test/test_runners/TestSorter_Runner.c
 
 run: build
 	./app
